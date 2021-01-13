@@ -21,8 +21,9 @@ app.get("/", (req, res) => {
 
   return client.get(keyRequired, (err, data) => {
     if (res) {
-      client.set(keyRequired, data + 1);
-      return res.json({ count: data });
+      client.set(keyRequired, Number(data) + 1);
+      //   return res.json({ count: data });
+      return res.send(`Number of visitors >> ${data}`);
     }
   });
 });
